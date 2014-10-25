@@ -10,9 +10,12 @@
 		<link rel="stylesheet" type="text/css" href="css/basic-theme.css">
 	</head>
 	<body data-spy="scroll" data-target=".navbar"  data-offset="5">
-		<nav id="globalNavbar" class="navbar navbar-default navbar-fixed-top navbar-custom" role="navigation">
+		<nav id="globalNavbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="container">
+				<span class="visible-xs-inline-block">
+					<a href="http://mellowonpsx.github.io"><img id="nav-logo-small" src="img/logo_round.png" class="nav-logo-class-xs hidden"></a>
+				</span>
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">
 					<span class="sr-only">Toggle navigation</span>
@@ -20,14 +23,14 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<div class="collapse navbar-collapse" id="navbarCollapse">
+				<div class="collapse navbar-collapse navbar-custom" id="navbarCollapse">
 					<ul class="nav navbar-nav">
-						<li class="active" class="hidden"><a href="#globalNavbar" class="hidden"><!--hidden selected when nothing else selected--></a></li>
+						<li class="active hidden"><a href="#globalNavbar"><!--hidden selected when nothing else selected--></a></li>
 						<li><a href="#section-about-me" class="page-scroll">About Me</a></li>
 						<li><a href="#section-cv" class="page-scroll">CV</a></li>
 						<li class="hidden-xs">
 							<div class="navbar-header">
-								<a href="http://mellowonpsx.github.io"><img id="nav-logo" src="img/logo_round.png" class="nav-logo-class hidden"></a>
+								<a href="http://mellowonpsx.github.io"><img id="nav-logo-big" src="img/logo_round.png" class="nav-logo-class hidden"></a>
 							</div>
 						</li>
 						<li><a href="#section-projects" class="page-scroll">Projects</a></li>
@@ -39,7 +42,7 @@
 		<header class="header-image-container">
 			<div class="container-fluid">
 				<div class="row">
-					<img src="img/header.png" class="header-image">
+					<img src="img/header.png" class="header-image" id="header-image">
 				</div>
 			</div>
 		</header>
@@ -208,7 +211,7 @@ Praesent imperdiet risus sed nulla consectetur, vel semper lorem condimentum. Ma
 									Simply, go to my <a href="https://github.com/mellowonpsx">repository</a>, and contact me through github. You can also git-clone one of my repo and look for my email address inside that.
 								</p>
 								<p class="hidden-xs text-center">
-									<img id="nav-logo" src="img/GitHub-Mark-120px-plus.png">
+									<img src="img/GitHub-Mark-120px-plus.png">
 								</p>
 							</div>
 							<div class="col-sm-4">
@@ -230,7 +233,7 @@ Praesent imperdiet risus sed nulla consectetur, vel semper lorem condimentum. Ma
 			<div class="container" >
 				<hr>
 				<div class="row pull-right">
-					<p>&copy; Rightocopy mellowonpsx <a href="http://mellowonpsx.github.io"><img id="nav-logo" src="img/logo.png" class="footer-image"></a></p>
+					<p>&copy; Rightocopy mellowonpsx <a href="http://mellowonpsx.github.io"><img src="img/logo.png" class="footer-image"></a></p>
 				</div>
 			</div>
 		</footer>
@@ -245,36 +248,19 @@ Praesent imperdiet risus sed nulla consectetur, vel semper lorem condimentum. Ma
 		//jQuery to collapse the navbar on scroll
 			$(window).scroll(function() 
 			{
-				//if($("#header-master").visible() === false) 
-				if($("#globalNavbar").offset().top > 215)
+				if($("#globalNavbar").offset().top > ($("#header-image").height()+50-30))
 				{
-					//$("#globalNavbar").addClass( "navbar-default", "navbar-inverse", 1000, "easeInOutQuad" );
-					//$("#globalNavbar").addClass("navbar-fixed-top");
 					$("#globalNavbar").addClass( "navbar-inverse");
-					$("#nav-logo").removeClass("hidden");
-					$("#nav-logo").addClass("visible-lg-block");
-					//$("#globalNavbar").addClass( "navbar-custom-collapse");
-					//$("#globalNavbar").addClass("navbar-inverse");
-					//$("#globalNavbar").addClass("navbar-custom-collapse");$("#nav-logo").removeClass("hidden");
-				} 
-				//if($("#header-master").visible() === true) 
+					$("#nav-logo-big").removeClass("hidden");
+					$("#nav-logo-small").removeClass("hidden");
+				} 				
 				else
 				{
 					$("#globalNavbar").removeClass("navbar-inverse");
-					$("#nav-logo").addClass("hidden");
-					$("#nav-logo").removeClass("visible-lg-block");
-					//$("#globalNavbar").removeClass( "navbar-custom-collapse");
+					$("#nav-logo-big").addClass("hidden");
+					$("#nav-logo-small").addClass("hidden");
 				}
 			});
-			  
-			/*$('.nav a').click(function()
-			{
-				$('html, body').stop().animate({
-				scrollTop: $( $(this).attr('href') ).offset().top - 160
-				}, 400);
-				return false;
-			});
-			$('.scrollTop a').scrollTop();*/
 		</script>
 	</body>
 </html>
